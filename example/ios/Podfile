@@ -9,7 +9,7 @@ target 'RnkuaishouExample' do
   use_react_native!(:path => config["reactNativePath"])
 
       pod 'rnkuaishou', :path => '../..'
-  
+      pod 'KwaiSDK' ,'3.4.9'
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and

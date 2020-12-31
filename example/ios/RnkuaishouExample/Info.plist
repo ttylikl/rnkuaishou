@@ -20,6 +20,29 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>kuaishou</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ks675258470891385408</string>
+			</array>
+		</dict>
+	</array>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>kwai</string>
+    <string>kwaiAuth2</string>
+    <string>kwaiopenapi</string>
+    <string>KwaiBundleToken</string>
+    <string>kwai.clip.multi</string>
+    <string>KwaiSDKMediaV2</string>
+    <string>ksnebula</string>
+  </array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
