@@ -39,7 +39,7 @@ export default class Home extends React.Component<Props, State> {
     let msg: string = await Rnkuaishou.registerApp(
       'ks675258470891385408',
       'https://www.zbz666.com/'
-      ); // 申请完成后替换
+    ); // 申请完成后替换
     console.log('registerApp', msg);
     this.setState({ msg });
     let r = await Rnkuaishou.sendAuthRequest();
