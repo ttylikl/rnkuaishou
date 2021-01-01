@@ -36,7 +36,10 @@ export default class Home extends React.Component<Props, State> {
 
   onTest3 = async (e: any) => {
     console.log('onTest3', e);
-    let msg: string = await Rnkuaishou.registerApp('ks675258470891385408', 'https://www.zbz666.com/'); // 申请完成后替换
+    let msg: string = await Rnkuaishou.registerApp(
+      'ks675258470891385408',
+      'https://www.zbz666.com/'
+      ); // 申请完成后替换
     console.log('registerApp', msg);
     this.setState({ msg });
     let r = await Rnkuaishou.sendAuthRequest();
