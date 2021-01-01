@@ -8,3 +8,5 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+-keep class com.kwai.opensdk.sdk.** {*;}
+-keep class com.kwai.opensdk.auth.** {*;}

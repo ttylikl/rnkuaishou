@@ -33,18 +33,18 @@
 			</array>
 		</dict>
 	</array>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>kwai</string>
-    <string>kwaiAuth2</string>
-    <string>kwaiopenapi</string>
-    <string>KwaiBundleToken</string>
-    <string>kwai.clip.multi</string>
-    <string>KwaiSDKMediaV2</string>
-    <string>ksnebula</string>
-  </array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kwai</string>
+		<string>kwaiAuth2</string>
+		<string>kwaiopenapi</string>
+		<string>KwaiBundleToken</string>
+		<string>kwai.clip.multi</string>
+		<string>KwaiSDKMediaV2</string>
+		<string>ksnebula</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

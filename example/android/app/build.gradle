@@ -128,11 +128,17 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.rnkuaishou"
+        applicationId "com.zbz666.fanhong"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        
+        manifestPlaceholders = [
+            "KWAI_APP_ID": "ks675258470891385408", // 申请分配的appId
+            "KWAI_SCOPE" : "user_info" // 需要申请的scope权限，多个scope可以使用","分割，代表需要用户授权什么能力
+        ]
+
     }
     splits {
         abi {
@@ -205,6 +211,8 @@ dependencies {
     }
 
     implementation project(':rnkuaishou')
+    // 版本号建议设置成最新的版本
+    implementation "com.github.kwaisocial:kwai-opensdk-withauth:2.7.0" 
 }
 
 // Run this once to be able to run the application with BUCK

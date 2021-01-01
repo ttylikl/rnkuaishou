@@ -1,4 +1,4 @@
-package com.example.rnkuaishou;
+package com.zbz666.fanhong;
 
 import com.facebook.react.ReactActivity;
 

@@ -1,5 +1,9 @@
 #import <React/RCTBridgeModule.h>
+#import "KSApi.h"
+#import "KSApiObject.h"
 
-@interface Rnkuaishou : NSObject <RCTBridgeModule>
+#define KuaiShouEventName @"KuaiShou_Resp"
+
+@interface Rnkuaishou : NSObject <RCTBridgeModule, KSApiDelegate>
 
 @end

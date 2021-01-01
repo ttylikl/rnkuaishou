@@ -1,4 +1,4 @@
-package com.example.rnkuaishou;
+package com.zbz666.fanhong;
 
 import android.app.Application;
 import android.content.Context;
