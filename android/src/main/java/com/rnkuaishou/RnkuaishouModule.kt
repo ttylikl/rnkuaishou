@@ -47,8 +47,9 @@ class RnkuaishouModule(reactContext: ReactApplicationContext) : ReactContextBase
     }
 
     var ctx: Application = currentActivity.application
-    KwaiOpenSdkAuth.init(ctx);
+    KwaiOpenSdkAuth.init(ctx)
     appId = appid
+    LogUtil.i(TAG, "$universalLink is used by ios, just a placeholder.")
     promise.resolve("ok")
   }
 
