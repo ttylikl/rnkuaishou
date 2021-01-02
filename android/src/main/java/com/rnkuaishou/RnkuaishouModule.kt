@@ -4,10 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.os.Handler
 import android.os.Looper
-import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.*
+import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.kwai.auth.common.InternalResponse
 import com.kwai.auth.common.KwaiConstants
 import com.kwai.opensdk.auth.IKwaiAuthListener
@@ -98,29 +96,35 @@ class RnkuaishouModule(reactContext: ReactApplicationContext) : ReactContextBase
     return openId
   }
 
+  private val thiz:RnkuaishouModule = this
   private var mOpenId: String? = null
   private val mKwaiOpenSdkAuth: IKwaiOpenSdkAuth? = KwaiOpenSdkAuth()
   val mKwaiAuthListener: IKwaiAuthListener = object : IKwaiAuthListener {
     override fun onSuccess(response: InternalResponse) {
-      Thread {
-        var result: String? = null
-        var retry = 0
-        while (null == result && retry < NETWORK_MAX_RETRY_TIMES) {
-          result = getOpenIdByNetwork(response.code)
-          retry++
-          LogUtil.i(TAG, "retry=$retry")
-        }
-        val openId = result
-        val mainHandler = Handler(Looper.getMainLooper())
-        mainHandler.post {
-          mOpenId = openId
-//          if (TextUtils.isEmpty(mOpenId)) {
-//            mOpenIdTv.setText("当前openId:" + "get openId error")
-//          } else {
-//            mOpenIdTv.setText("当前openId:$mOpenId")
-//          }
-        }
-      }.start()
+      val map = Arguments.createMap()
+      map.putInt("errCode", response.errorCode)
+      map.putString("errorMsg", response.errorMsg)
+      map.putString("authCode", response.code)
+      map.putString("state", response.state)
+      map.putString("type", "SendAuth.Resp")
+
+      var ctx: ReactApplicationContext? = thiz.getReactApplicationContext();
+      ctx?.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)?.emit("KuaiShou_Resp", map)
+
+//      Thread {
+//        var result: String? = null
+//        var retry = 0
+//        while (null == result && retry < NETWORK_MAX_RETRY_TIMES) {
+//          result = getOpenIdByNetwork(response.code)
+//          retry++
+//          LogUtil.i(TAG, "retry=$retry")
+//        }
+//        val openId = result
+//        val mainHandler = Handler(Looper.getMainLooper())
+//        mainHandler.post {
+//          mOpenId = openId
+//        }
+//      }.start()
     }
 
     override fun onFailed(state: String, errCode: Int, errMsg: String) {
