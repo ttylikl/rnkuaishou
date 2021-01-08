@@ -40,6 +40,7 @@ RCT_REMAP_METHOD(registerApp,
 }
 
 RCT_REMAP_METHOD(ksauth,
+                 :(nonnull NSString*)loginType
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {

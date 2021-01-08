@@ -54,8 +54,12 @@ class RnkuaishouModule(reactContext: ReactApplicationContext) : ReactContextBase
   }
 
   @ReactMethod
-  fun ksauth(promise: Promise) {
-    h5Login()
+  fun ksauth(loginType: String, promise: Promise) {
+    if(loginType=="app") {
+      appLogin()
+    } else if(loginType=="h5") {
+      h5Login()
+    }
     promise.resolve("called")
   }
 
