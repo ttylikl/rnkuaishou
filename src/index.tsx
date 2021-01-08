@@ -25,7 +25,7 @@ Rnkuaishou.foo = (): Promise<any> => {
   });
 };
 
-Rnkuaishou.sendAuthRequest = (loginType: String = "app"): Promise<any> => {
+Rnkuaishou.sendAuthRequest = (loginType: String = 'app'): Promise<any> => {
   return new Promise((resolve, reject) => {
     emitter.once('SendAuth.Resp', (resp) => {
       console.log('SendAuth.Resp', resp);
