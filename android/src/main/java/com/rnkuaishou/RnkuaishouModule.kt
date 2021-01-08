@@ -135,6 +135,10 @@ class RnkuaishouModule(reactContext: ReactApplicationContext) : ReactContextBase
     override fun onFailed(state: String, errCode: Int, errMsg: String) {
 //      mOpenIdTv.setText("code error is $errCode and msg is $errMsg")
       LogUtil.i(TAG, "code error is $errCode and msg is $errMsg")
+      if(errCode== -1005) {
+        // errMsg = "CODE_CANCEL_NO_APP"
+        h5Login();
+      }
     }
 
     override fun onCancel() {
