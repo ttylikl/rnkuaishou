@@ -57,22 +57,6 @@ RCT_REMAP_METHOD(ksauth,
                 resolve(@"fail");
             }
         }];
-//                completion:^(KSAuthResponse * _Nonnull r) {
-//            NSString *alertString = nil;
-//            if (r.errCode == 0) {
-//                alertString = [NSString stringWithFormat:@"Author Success Code : %@, permission : %@",r.code, r.grantedPermissions];
-//            } else{
-//                alertString = [NSString stringWithFormat:@"Author failed code : %@, msg : %@",@(r.errCode), r.errString];
-//            }
-//            NSMutableDictionary *body = @{@"errCode":@(r.errCode)}.mutableCopy;
-//            body[@"errStr"] = r.errString;
-//            body[@"type"] = @"SendAuth.Resp";
-//            body[@"authCode"] = r.code;
-//            body[@"grantedPermissions"] = r.grantedPermissions;
-//            [thiz.bridge.eventDispatcher sendDeviceEventWithName:DouYinEventName body:body];
-//
-//            resolve(alertString);
-//        }];
     });
 }
 
@@ -82,10 +66,6 @@ RCT_REMAP_METHOD(ksauth,
     @try{
         KSAuthResponse *r = (KSAuthResponse*) response;
         NSMutableDictionary *body = @{@"type": @"SendAuth.Resp"}.mutableCopy;
-//        body[@"errStr"] = [response.error localizedDescription];
-//        if(response.error!=nil) {
-//            NSLog([response.error localizedDescription]);
-//        }
         body[@"authCode"] = r.code;
         [self.bridge.eventDispatcher sendDeviceEventWithName:KuaiShouEventName body:body];
     }
